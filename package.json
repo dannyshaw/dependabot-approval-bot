@@ -1,0 +1,21 @@
+{
+  "name": "dependabot-approve-bot",
+  "private": false,
+  "version": "0.1.0",
+  "description": "A GitHub App that serves only to submit approving Pull Request Reviews for PRs from DependaBot",
+  "author": "Danny Shaw <danny@dannyshaw.io>",
+  "license": "ISC",
+  "repository": "https://github.com/edrolo/dependabot-approve-bot.git",
+  "scripts": {
+    "start": "probot run ./index.js"
+  },
+  "dependencies": {
+    "probot": "7.5.3"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "contributors": [
+    "Rhys Arkins <rhys@arkins.net>"
+  ]
+}
