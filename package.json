@@ -10,7 +10,7 @@
     "start": "probot run ./index.js"
   },
   "dependencies": {
-    "lodash": "^4.0.0",
+    "lodash": "^4.17.15",
     "probot": "7.5.2"
   },
   "engines": {
