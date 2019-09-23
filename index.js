@@ -3,14 +3,11 @@ const AUTO_MERGE_MESSAGE = "Dependabot will automatically merge";
 const DEPENDABOT = "dependabot-preview[bot]";
 const DEPENDABOT_APPROVE_BOT = "dependabot-approve[bot]";
 
-function isDependabotApproved(context) {
-  return context && context.payload && context.payload.review;
-}
-
 module.exports = app => {
   app.log("App is loaded");
   function isDependabot(context) {
     try {
+      app.log(`PR sender: ${context.payload.sender.login}`);
       return context.payload.sender.login === DEPENDABOT;
     } catch (err) {
       app.log(context.payload);
