@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "probot": "^7.5.3",
-    "react": "^15.0.0"
+    "react": "^16.9.0"
   },
   "engines": {
     "node": "8.x"
