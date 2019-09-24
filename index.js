@@ -7,8 +7,9 @@ module.exports = app => {
   app.log("App is loaded");
   function isDependabot(context) {
     try {
-      app.log(`PR sender: ${context.payload.sender.login}`);
-      return context.payload.sender.login === DEPENDABOT;
+      const is = context.payload.sender.login === DEPENDABOT;
+      app.log(`isDependabot: ${is}`);
+      return is;
     } catch (err) {
       app.log(context.payload);
       app.log(err);
@@ -18,7 +19,9 @@ module.exports = app => {
 
   function isAutomerging(context) {
     try {
-      return context.payload.pull_request.body.includes(AUTO_MERGE_MESSAGE);
+      const is = context.payload.pull_request.body.includes(AUTO_MERGE_MESSAGE);
+      app.log(`isAutomerging: ${is}`);
+      return is;
     } catch (err) {
       app.log(context.payload);
       app.log(err);
@@ -28,7 +31,9 @@ module.exports = app => {
 
   function isDependabotApprover(context) {
     try {
-      return context.payload.review.user.login === DEPENDABOT_APPROVE_BOT;
+      const is = context.payload.review.user.login === DEPENDABOT_APPROVE_BOT;
+      app.log(`isDependabotApprover: ${is}`);
+      return is;
     } catch (err) {
       app.log(err);
       return false;
@@ -37,7 +42,9 @@ module.exports = app => {
 
   function isDependabotUser(context) {
     try {
-      return context.payload.pull_request.user.login === DEPENDABOT;
+      const is = context.payload.pull_request.user.login === DEPENDABOT;
+      app.log(`isDependabotUser: ${is}`);
+      return is;
     } catch (err) {
       app.log(context.payload);
       app.log(err);
