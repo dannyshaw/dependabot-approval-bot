@@ -10,7 +10,7 @@
     "start": "probot run ./index.js"
   },
   "dependencies": {
-    "probot": "^7.5.3",
+    "probot": "^9.5.0",
     "vue": "^2.5.22"
   },
   "engines": {
