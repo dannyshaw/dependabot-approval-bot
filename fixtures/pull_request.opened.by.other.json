@@ -1,0 +1,19 @@
+{
+  "action": "opened",
+  "pull_request": {
+    "number": 1,
+    "user": {
+      "login": "dannyshaw"
+    },
+    "body": "A boring PR"
+  },
+  "repository": {
+    "name": "dependabot-approve-bot",
+    "owner": {
+      "login": "dannyshaw"
+    }
+  },
+  "sender": {
+  	"login": "dependabot-preview[bot]"
+  }
+}

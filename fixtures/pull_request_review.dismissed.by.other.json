@@ -1,0 +1,24 @@
+{
+  "action": "dismissed",
+  "pull_request": {
+    "number": 1,
+    "user": {
+      "login": "dependabot-preview[bot]"
+    },
+  },
+  "review": {
+    "id": 123,
+    "user": {
+      "login": "dependabot-approve[bot]"
+    }
+  },
+  "repository": {
+    "name": "dependabot-approve-bot",
+    "owner": {
+      "login": "dependabot-approve[bot]"
+    }
+  },
+  "sender": {
+    "login": "dannyshaw"
+  }
+}

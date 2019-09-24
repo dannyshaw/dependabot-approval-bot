@@ -5,10 +5,11 @@ const DEPENDABOT_APPROVE_BOT = "dependabot-approve[bot]";
 
 module.exports = app => {
   app.log("App is loaded");
-  function isDependabot(context) {
+  function isDependabotActing(context) {
     try {
+      // console.log(context.payload)
       const is = context.payload.sender.login === DEPENDABOT;
-      app.log(`isDependabot: ${is}`);
+      app.log(`isDependabotActing: ${is}`);
       return is;
     } catch (err) {
       app.log(context.payload);
@@ -29,10 +30,10 @@ module.exports = app => {
     }
   }
 
-  function isDependabotApprover(context) {
+  function isDependabotReview(context) {
     try {
       const is = context.payload.review.user.login === DEPENDABOT_APPROVE_BOT;
-      app.log(`isDependabotApprover: ${is}`);
+      app.log(`isDependabotReview: ${is}`);
       return is;
     } catch (err) {
       app.log(err);
@@ -40,10 +41,10 @@ module.exports = app => {
     }
   }
 
-  function isDependabotUser(context) {
+  function isDependabotPr(context) {
     try {
       const is = context.payload.pull_request.user.login === DEPENDABOT;
-      app.log(`isDependabotUser: ${is}`);
+      app.log(`isDependabotPr: ${is}`);
       return is;
     } catch (err) {
       app.log(context.payload);
@@ -64,7 +65,7 @@ module.exports = app => {
 
   app.on("pull_request.opened", async context => {
     app.log("Received PR open event");
-    if (isDependabot(context) && isAutomerging(context)) {
+    if (isDependabotActing(context) && isAutomerging(context)) {
       app.log("Approving new PR");
       return approvePr(context);
     }
@@ -73,11 +74,13 @@ module.exports = app => {
   app.on("pull_request_review.dismissed", async context => {
     app.log("Received PR review dismiss event");
     app.log(context.payload);
+    // note, not checking isAutomerging here as the PR body doesn't have that message
+    // at the point where the dismissal comes in, though we can assume if we approved
+    // it previously, we should approve it again.
     if (
-      isDependabot(context) &&
-      isAutomerging(context) &&
-      isDependabotApprover(context) &&
-      isDependabotUser(context)
+      isDependabotActing(context) &&
+      isDependabotPr(context) &&
+      isDependabotReview(context)
     ) {
       app.log("Re-approving dismissed approval");
       return approvePr(context);

@@ -7,14 +7,21 @@
   "license": "ISC",
   "repository": "https://github.com/edrolo/dependabot-approve-bot.git",
   "scripts": {
-    "start": "probot run ./index.js"
+    "start": "probot run ./index.js",
+    "test": "jest"
   },
   "dependencies": {
-    "probot": "^7.5.3",
-    "vue": "^2.5.22"
+    "probot": "^9.5.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "nock": "^11.3.5"
   },
   "engines": {
     "node": "8.x"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "contributors": [
     "Rhys Arkins <rhys@arkins.net>"

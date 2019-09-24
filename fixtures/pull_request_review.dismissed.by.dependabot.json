@@ -1,0 +1,25 @@
+{
+  "action": "dismissed",
+  "pull_request": {
+    "number": 1,
+    "user": {
+      "login": "dependabot-preview[bot]"
+    },
+    "body": "Dependabot will automatically merge"
+  },
+  "review": {
+    "id": 123,
+    "user": {
+      "login": "dependabot-approve[bot]"
+    }
+  },
+  "repository": {
+    "name": "dependabot-approve-bot",
+    "owner": {
+      "login": "dannyshaw"
+    }
+  },
+  "sender": {
+    "login": "dependabot-preview[bot]"
+  }
+}
