@@ -10,8 +10,8 @@
     "start": "probot run ./index.js"
   },
   "dependencies": {
-    "lodash": "^4.1.0",
-    "probot": "^7.5.3"
+    "probot": "^7.5.3",
+    "react": "^15.0.0"
   },
   "engines": {
     "node": "8.x"
