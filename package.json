@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "probot": "^7.5.3",
-    "vue": "^2.5.22"
+    "vue": "^2.6.10"
   },
   "engines": {
     "node": "8.x"
