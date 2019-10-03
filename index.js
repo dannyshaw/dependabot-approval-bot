@@ -1,7 +1,7 @@
 const APPROVE = "APPROVE";
 const AUTO_MERGE_MESSAGE = "Dependabot will automatically merge";
 const DEPENDABOT = "dependabot-preview[bot]";
-const DEPENDABOT_APPROVE_BOT = "dependabot-approve[bot]";
+const DEPENDABOT_APPROVAL_BOT = "dependabot-approval-bot[bot]";
 
 module.exports = app => {
   app.log("App is loaded");
@@ -32,7 +32,7 @@ module.exports = app => {
 
   function isDependabotReview(context) {
     try {
-      const is = context.payload.review.user.login === DEPENDABOT_APPROVE_BOT;
+      const is = context.payload.review.user.login === DEPENDABOT_APPROVAL_BOT;
       app.log(`isDependabotReview: ${is}`);
       return is;
     } catch (err) {
