@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "jest": "^24.9.0",
-    "nock": "^11.3.5"
+    "nock": "^13.0.5"
   },
   "engines": {
     "node": "8.x"
